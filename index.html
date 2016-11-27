@@ -8,7 +8,7 @@
 <body>
 	<div class="container main-box">
 		<div class="row text-center">
-			<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='singlePlayer.html'">Single Player</button>
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#gameModal">Single Player</button>
 		</div>
 		<div class="row text-center">
 			<button type="button" class="btn btn-primary btn-lg">Multiplayer</button>
@@ -17,6 +17,64 @@
 			<button type="button" class="btn btn-primary btn-lg">Tutorial</button>
 		</div>
 	</div>
+
+
+	<!-- Game Configuration Modal Starts Here -->
+
+	<div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title text-center" id="myModalLabel">Game Configurations</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="container">
+	        	<div class="row game-option1">
+	        		<h4>Game Duration</h4>
+	        		<label class="radio-inline">
+					  <input type="radio" name="duration" id="inlineRadio1" value="option1"> 30 Seconds
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="duration" id="inlineRadio2" value="option2" checked> 60 Seconds
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="duration" id="inlineRadio3" value="option3"> 90 Seconds
+					</label>
+	        	</div>
+	        	<div class="row game-option">
+	        		<h4>Difficulty</h4>
+	        		<label class="radio-inline">
+					  <input type="radio" name="difficulty" id="inlineRadio1" value="option1"> Easy
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="difficulty" id="inlineRadio2" value="option2" checked> Medium
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="difficulty" id="inlineRadio3" value="option3"> Hard
+					</label>
+	        	</div>
+	        	<div class="row game-option">
+	        		<h4>String Type</h4>
+	        		<label class="radio-inline">
+					  <input type="radio" name="type" id="inlineRadio1" value="option1" checked> Default (System Generated)
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="type" id="inlineRadio2" value="option2"> Custom
+					</label>
+	        	</div>
+	        </div>
+	      </div>
+	      <div class="modal-footer ">
+	        <button type="button" id="launch-button" class="btn btn-primary" onclick="window.location.href='singlePlayer.html'">Launch Game</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Game Configuration Modal Ends Here -->
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
