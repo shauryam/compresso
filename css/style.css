@@ -23,3 +23,8 @@ body{
 .game-option h4{
 	margin-top: 35px;
 }
+
+#custom-string{
+	margin: 15px -15px;
+	border-radius: 3px;
+}

@@ -1,7 +1,8 @@
-
+var duration = getParameterByName('difficulty');
+console.log(duration);
 $(function(){
 	var draggedWord;
-   var str = "This is the text that has to be compressed. This is going to be compressed by the player";
+   var str = compressionStr[Math.floor(Math.random()*compressionStr.length)];
    var arr = str.split(" ");
    $.each(arr, function( index, value ) {
   		console.log(value);
@@ -51,7 +52,7 @@ $.fn.extend({
     }
 });
 
-var seconds = 60000
+var seconds = getParameterByName('duration')*1000;
 var time = new Date().getTime() + seconds;
 $('#clock').countdown(time, {elapse: true})
 .on('update.countdown', function(event) {
@@ -61,3 +62,20 @@ $('#clock').countdown(time, {elapse: true})
     $this.html(event.strftime(' %S '));
   }
 });
+
+
+//funtion to parse the query string
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
+
