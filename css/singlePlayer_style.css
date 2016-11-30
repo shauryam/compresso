@@ -70,9 +70,22 @@ body{
 	border-radius: 7px;
 	background-color: white;
 	margin: 25px 25px;
+	cursor: pointer;
 }
 
 img{
 	margin-top: 10px;
 	padding: 5px 0px;
+}
+
+.modal-title{
+	text-align: center;
+}
+
+.modal-footer{
+	text-align: center;
+}
+
+.stats-head{
+	margin-top: 50px;
 }

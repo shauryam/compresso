@@ -24,8 +24,8 @@
 				<div id="reset">
 					<p>Reset</p>
 				</div>
-				<div id="finish">
-					<p>Finish</p>
+				<div id="finish" data-toggle="modal" data-target="#resultModal">
+					<p onclick="finish()">Finish</p>
 				</div>
 			</div>
 			
@@ -39,8 +39,30 @@
 			</div>
 		</div>	
 	</div>
+
+	<!-- Result modal starts here-->
+	<div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Game Results</h4>
+	      </div>
+	      <div class="modal-body">
+	        <h3 class="text-center">Superb! You managed a total of 64% compression</h3>
+	        <h4 class="text-center">Maximum possible compression for this string is 57%</h4>
+	        <h4 class="text-center lead stats-head muted">Here are some of the stats</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary col-md-offset-4 col-md-4" data-dismiss="modal">Superb!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Result modal ends here-->
 	
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>	
 	<script type="text/javascript" src="js/compressionStrings.js"></script>
@@ -48,6 +70,7 @@
 	<script type="text/javascript" src="js/parseQueryString.js"></script>
 	<script type="text/javascript" src="js/pointsIncrementor.js"></script>
 	<script type="text/javascript" src="js/Iterator.js"></script>
+	<script type="text/javascript" src="js/finish.js"></script>
 	<script type="text/javascript" src="js/singlePlayer_script.js"></script>
 
 </body>

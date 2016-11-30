@@ -69,13 +69,21 @@ $.fn.extend({
 //code for timer starts here which uses the function 'getParameterByName()' to fetch duration from query string
 var seconds = getParameterByName('duration')*1000;
 var time = new Date().getTime() + seconds;
-$('#clock').countdown(time, {elapse: true})
-.on('update.countdown', function(event) {
+var timeFinished = false;
+var clock = $('#clock').countdown(time, {precision: 1000});
+
+clock.on('update.countdown', function(event) {
   var $this = $(this);
   if (event.elapsed) {
   } else {
     $this.html(event.strftime(' %S '));
   }
+}).countdown('start');
+
+clock.on('finish.countdown', function(event){
+  var $this = $(this);
+  $this.html(event.strftime('00'));
+  $('#resultModal').modal('show');
 });
 //timer code ends here
 
