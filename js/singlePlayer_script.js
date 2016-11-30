@@ -11,11 +11,7 @@ $(function(){
 
    //Code to split the string to individual words and put them on screen for dragging
    var arr = str.split(" ");
-   counter=0;
-   $.each(arr, function( index, value ) {
-  		$( ".string" ).append( "<p id='draggable"+counter+"'>"+value+"</p>" );      
-      counter++;
-	 });
+   putString(arr); //Implemented using iterator pattern
 
    //This array has been created to compare draggedWords with words without symbols like period, comma or exclamation.
    var arrWithoutSymbols = strWithoutSymbols.split(" ");
@@ -43,27 +39,16 @@ $(function(){
   //droppable is the compression box and the following code has the logic to check if dragged word is compressable
   $( "#droppable" ).droppable({
       drop: function( event, ui ) {   
-        count = 0; //count for matched words
-        var matchingIndexes = []; // this array is used to track the indexes of the words that will match the dragged word
-        $.each(arrWithoutSymbols, function( index, value ) {
-          if(value == draggedWord){
-            count++;
-            matchingIndexes.push(index); 
-          }
-        });  
-        if(count<2){ // 2 or more including the word dragged
+         // this array is used to track the indexes of the words that will match the dragged word
+        var matchingIndexes = checkDuplicates(arrWithoutSymbols, draggedWord);//Implemented using decorator pattern
+        
+        if(matchingIndexes.length<2){ // 2 or more including the word dragged
           $(this).effect("shake");
         }
         else{
-          $(this).animateCss('bounce');
-          var text = $("#draggable p").innerText;
+          $(this).animateCss('bounce');          
+          disableDuplicates(matchingIndexes); //Implemented using Iterator Pattern          
           var score = $("#score").html();
-          var word = ui.helper[0];
-          $.each(matchingIndexes, function( index, value ) { //this loop greys out all the matched words
-            var elementSelector = "#draggable" + value;
-            $(elementSelector).draggable("disable");
-            $(elementSelector).css("opacity", 0.3);
-          });
           $("#score").html(parseInt(score) + pointsIncrementor);
         }
       }
