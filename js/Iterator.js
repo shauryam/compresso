@@ -55,7 +55,11 @@ function disableDuplicates(items){
         var elementSelector = "#draggable" + index;
         $(elementSelector).draggable("disable");
         $(elementSelector).css("opacity", 0.3);
+// [SAND_TODO] : Insert this value into the hashmap.
+       // console.log("index is: ", index);    
+      //  console.log("word being inserted to hashmap " +  $(elementSelector).text(), + " at index: " + index);  
+        insertIntoHashMap($(elementSelector).text(), index);         
     }
+    
 }
-
 

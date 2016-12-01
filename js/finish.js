@@ -3,4 +3,5 @@ function finish() {
     var elementSelector = "#draggable" + i;
     $(elementSelector).draggable("disable");
   }
+    calculateCompressedStringLength();
 }

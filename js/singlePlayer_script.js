@@ -1,4 +1,10 @@
 var numberOfWords;
+var arrWithoutSymbols = [];
+var compressedArray = [];
+var hashedWords = []; 
+var gameFinsihed = false;
+var timeTaken = 0;
+
 $(function(){
 
   var points = 00;
@@ -15,9 +21,11 @@ $(function(){
    putString(arr); //Implemented using iterator pattern
 
    //This array has been created to compare draggedWords with words without symbols like period, comma or exclamation.
-   var arrWithoutSymbols = strWithoutSymbols.split(" ");
+   arrWithoutSymbols = strWithoutSymbols.split(" ");
    numberOfWords = arrWithoutSymbols.length;
 
+   //Copy original array
+   compressedArray = arrWithoutSymbols.slice();
 
    //following loop adds the feature of dragging all the words and also gives each word a unique ID
    for(var i=0; i<counter; i++){

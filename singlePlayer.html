@@ -22,10 +22,11 @@
 					<p id="score">00</p>
 				</div>
 				<div id="reset">
-					<p>Reset</p>
+					<p onclick="maxPossibleCompression()">Reset</p>
 				</div>
+
 				<div id="finish" data-toggle="modal" data-target="#resultModal">
-					<p onclick="finish()">Finish</p>
+					 <p onclick="finish()">Finish</p>
 				</div>
 			</div>
 			
@@ -49,8 +50,9 @@
 	        <h4 class="modal-title" id="myModalLabel">Game Results</h4>
 	      </div>
 	      <div class="modal-body">
-	        <h3 class="text-center">Superb! You managed a total of 64% compression</h3>
-	        <h4 class="text-center">Maximum possible compression for this string is 57%</h4>
+	        <h3 id= "yourresult" class="text-center">Superb! You managed a total of 64% compression</h3>
+	        <!-- <h4 id ="bestresult" class="text-center">Maximum possible compression for this string is 57%</h4> -->
+	        <h4 id ="bestresult" class="text-center"></h4>
 	        <h4 class="text-center lead stats-head muted">Here are some of the stats</h4>
 	      </div>
 	      <div class="modal-footer">
@@ -72,6 +74,6 @@
 	<script type="text/javascript" src="js/Iterator.js"></script>
 	<script type="text/javascript" src="js/finish.js"></script>
 	<script type="text/javascript" src="js/singlePlayer_script.js"></script>
-
+    <script type="text/javascript" src="js/strategy.js"></script>
 </body>
 </html>
