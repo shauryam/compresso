@@ -1,3 +1,4 @@
+var numberOfWords;
 $(function(){
 
   var points = 00;
@@ -15,6 +16,8 @@ $(function(){
 
    //This array has been created to compare draggedWords with words without symbols like period, comma or exclamation.
    var arrWithoutSymbols = strWithoutSymbols.split(" ");
+   numberOfWords = arrWithoutSymbols.length;
+
 
    //following loop adds the feature of dragging all the words and also gives each word a unique ID
    for(var i=0; i<counter; i++){
@@ -44,6 +47,8 @@ $(function(){
         
         if(matchingIndexes.length<2){ // 2 or more including the word dragged
           $(this).effect("shake");
+          var score = $("#score").html();
+          $("#score").html(parseInt(score) - 5);
         }
         else{
           $(this).animateCss('bounce');          
@@ -84,6 +89,7 @@ clock.on('finish.countdown', function(event){
   var $this = $(this);
   $this.html(event.strftime('00'));
   $('#resultModal').modal('show');
+  
 });
 //timer code ends here
 
