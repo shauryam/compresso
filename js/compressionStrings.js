@@ -2,23 +2,27 @@
 var compressionStr = [
   "This is the text that has to be compressed. This is going to be compressed by the player",
   "Java is an object oriented language. The languages which are object oriented like java has OOPS concepts like abstraction, inheritace etc. The inheritace feature gives the advantage of code reuse",
-  "Change the world to technology, technology effects every field , it is not just about computers anymore, and ot is not just about tablets or smart phones, technology is about medicine, energy, transportation",
+  "Change the world to technology, technology effects every field, it is not just about computers anymore, and ot is not just about tablets or smart phones, technology is about medicine, energy, transportation",
   "Computing and technology has transformed society from the laptop we use to work and play, to medicine, to home as IoT, to GPS to self driving cars. Computing effects every one and every field, we need every one fluent in computing and technolgy ",
-  "I am thinking about something much more important than bombs, I am thinking about computer",
   "To access an object we use reference variable, reference variable can be of only one type, reference variable cannot be changed, reference variable can be reassigned to other objects, reference variable can be declared as a class or interface type",
-  "Agile software development refers to a group of software development methods which are based on iterative development. Agile methods or agile processes generally promote a disciplined project management process",
-  "betty botteutr bought a bit of butter but she said butter is bitter if I put in my batter it will make my batter bitter but a bit of better butter will make my batter better so she bought a bit of butter better than her bitter butter made her bitter batter better so it was better betty botter bought a bit of better butter",
-  "peter piper picked a peck of pickled peppers, a peck of pickled peppers peter pipper picked, if peter piper picked a peck of pickled peppers, where are the pickled peppers peter piper picked",
-  "I wish to wish the wish you wish to wish, but if u wish to wish the witch wishes I wont wish the wish you wish to wish",
-  "this is this  cat this is is cat this is how cat this is to cat this is keep cat this is an cat this is idiot cat this is busy cat this is for cat this is forty cat this is seconds cat",
-  "esau wood saw wood. esau wood would saw wood. oh, the wood that wood would saw ! one day esau wood saw a saw saw wood as no other wood saw wood ever saw wouls saw wood, wood ever saw saw wood, wood never saw a wood saw that would saw wood like the wood saw wood saw would saw wood now esau wood saws with that saw he saw saw wood ",
-  "a problem of solving a problem, but when a problem solves a problem without any problem then the problem is not at all a problem",
-  "luke luck likes lakes luckes duck likes lakes luke luck licks lakes lukes duck licks lakes duck takes licks in lakes luke luck takes licks in lakes duck likes",
-  "How many cookies could a good cook cook if a good cook could cook cookies ? a good cook could cook as much cookies as a good cook who could cook cookies",
-  "As I was in Arkansas I saw a saw that could out saw any saw I ever saw saw . If you happen to be Arkansas and see a saw that can out saw the saw I saw saw Id like to see the saw you saw saw",
-  "the big black bug bit the big black bear, but the big black bear bit the big black bug",
-  "a fly and flea flew into flue, said the fly to the flea  what shall we do ? , let us fly said the flea said the fly shall we flee so they flew through a flaw in the flue"
+  "Agile software development refers to a group of software development methods which are based on iterative development.Agile methods or agile processes generally promote a disciplined project management process",
+  "Betty botteutr bought a bit of butter but she said butter is bitter if I put in my batter it will make my batter bitter but a bit of better butter will make my batter better so she bought a bit of butter better than her bitter butter made her bitter batter better so it was better betty botter bought a bit of better butter",
+  "Peter piper picked a peck of pickled peppers, a peck of pickled peppers peter pipper picked, if peter piper picked a peck of pickled peppers, where are the pickled peppers peter piper picked",
+  "This is this cat this is is cat this is how cat this is to cat this is keep cat this is an cat this is idiot cat this is busy cat this is for cat this is forty cat this is seconds cat",
+  "Esau wood saw wood. esau wood would saw wood.Oh, the wood that wood would saw! one day esau wood saw a saw saw wood as no other wood saw wood ever saw would saw wood, wood ever saw saw wood, wood never saw a wood saw that would saw wood like the wood saw wood saw would saw wood now esau wood saws with that saw he saw saw wood ",
+  "A problem of solving a problem, but when a problem solves a problem without any problem then the problem is not at all a problem",
+  "Luke luck likes lakes luckes duck likes lakes luke luck licks lakes lukes duck licks lakes duck takes licks in lakes luke luck takes licks in lakes duck likes",
+  "How many cookies could a good cook cook if a good cook could cook cookies? a good cook could cook as much cookies as a good cook who could cook cookies",
+  "As I was in Arkansas I saw a saw that could out saw any saw I ever saw saw. If you happen to be Arkansas and see a saw that can out saw the saw I saw saw Id like to see the saw you saw saw",
+  "A fly and flea flew into flue, said the fly to the flea  what shall we do?, let us fly said the flea said the fly shall we flee so they flew through a flaw in the flue"
+  "There was an old lady who swallowed a cow.I don't know how she swallowed a cow! She swallowed the cow to catch the goat.She swallowed the goat to catch the dog.She swallowed the dog to catch the cat.She swallowed the cat to catch the bird. She swallowed the bird to catch the spider.That wriggled and jiggled and wiggled inside her.She swallowed the spider to catch the fly.But I don't know why she swallowed that fly Perhaps she'll die.",
+  "Suzie, Suzie, working in a shoeshine shop. All day long she sits and shines, all day long she shines and sits, and sits and shines, and shines and sits, and sits and shines, and shines and sits.Suzie, Suzie, working in a shoeshine shop.Tommy, Tommy, toiling in a tailor’s shop. All day long he fits and tucks, all day long he tucks and fits, and fits and tucks, and tucks and fits, and fits and tucks, and tucks and fits.Tommy, Tommy, toiling in a tailor’s shop.",
+  "A plain is a flat area, plains occur as lowlands along the bottoms of valleys, coastal plains and as plateaus or uplands at high elevations. In a valley, plains are enclosed on two sides but in other cases  plains may be delineated by a complete or partial ring of hills, by mountains or cliffs.",  
+  "To sit in solemn silence in a dull, dark dock, In a pestilential prison, with a life-long lock, Awaiting the sensation of a short, sharp shock, From a cheap and chippy chopper on a big black block! To sit in solemn silence in a dull, dark dock, In a pestilential prison, with a life-long lock, Awaiting the sensation of a short, sharp shock, From a cheap and chippy chopper on a big black block! A dull, dark dock, a life-long lock, A short, sharp shock, a big black block! To sit in solemn silence in a pestilential prison, And awaiting the sensation From a cheap and chippy chopper on a big black block!",
+  "Bought me a cat and the cat pleased me, I fed my cat under yonder tree. Cat goes fiddle-i-fee. Bought me a hen and the hen pleased me, I fed my hen under yonder tree.Hen goes chimmy-chuck, chimmy-chuck, Cat goes fiddle-i-fee. Bought me a duck and the duck pleased me, I fed my duck under yonder tree. Duck goes quack, quack, Hen goes chimmy-chuck, chimmy-chuck, Cat goes fiddle-i-fee. Bought me a goose and the goose pleased me I fed my goose under yonder tree. Goose goes hissy, hissy, Duck goes quack, quack, Hen goes chimmy-chuck, chimmy-chuck, Cat goes fiddle-i-fee.Bought me a sheep and the sheep pleased me, I fed my sheep under yonder tree.Sheep goes baa, baa, Goose goes hissy, hissy, Duck goes quack, quack, Hen goes chimmy-chuck, chimmy-chuck, Cat goes fiddle-i-fee.",
+  "I have a pen, I have an apple. Uh! Apple Pen I have a pen, I have Pineapple. Uh! Pineapple Pen Apple pen. Pineapple pen uh! Pen Pineapple Apple Pen! Pen Pineapple Apple Pen!",
   
-  
-  
+
+
+
 ];
