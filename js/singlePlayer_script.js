@@ -89,7 +89,7 @@ clock.on('finish.countdown', function(event){
   var $this = $(this);
   $this.html(event.strftime('00'));
   $('#resultModal').modal('show');
-  
+  finish();
 });
 //timer code ends here
 
