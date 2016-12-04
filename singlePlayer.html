@@ -9,7 +9,13 @@
 	<link rel="stylesheet" type="text/css" href="css/singlePlayer_style.css">
 </head>
 <body>
-	
+	<div class="container">
+		<div class="alert alert-warning alert-dismissible">
+		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		  <strong>Hurry!</strong> Other Player has finished
+		</div> 
+	</div>
+		
 	<div class="container main-container">		
 		<div class="row">
 			<div  class="col-md-3 text-center">
@@ -21,8 +27,8 @@
 					<p>Score</p>
 					<p id="score">00</p>
 				</div>
-				<div id="reset">
-					<p>Reset</p>
+				<div id="reset" onclick="hint()">
+					<p>Hint</p>
 				</div>
 				<div id="finish" data-toggle="modal" data-target="#resultModal">
 					<p onclick="finish()">Finish</p>

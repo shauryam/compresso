@@ -8,7 +8,19 @@ $(function(){
 
   //This will pick the strings randomly from the array 'compressionStr' present in compressionStrings.js file
    var str = compressionStr[Math.floor(Math.random()*compressionStr.length)];
-   var strWithoutSymbols = removeSymbols(str); //will remove symbols 
+   //var strWithoutSymbols = removeSymbols(str); //will remove symbols
+   var temp = str.split(" ");
+   for(var i = 0; i<temp.length; i++){
+      temp[i] = temp[i].replace(".", "");
+      temp[i] = temp[i].replace(",", "");
+      temp[i] = temp[i].replace("!", "");
+      temp[i] = temp[i].replace("?", "");
+   }
+
+   var strWithoutSymbols = temp.join(" ");
+   //strWithoutSymbols = strWithoutSymbols.replace(",", "");
+   console.log(strWithoutSymbols);
+
 
    //Code to split the string to individual words and put them on screen for dragging
    var arr = str.split(" ");
@@ -43,7 +55,7 @@ $(function(){
   $( "#droppable" ).droppable({
       drop: function( event, ui ) {   
          // this array is used to track the indexes of the words that will match the dragged word
-        var matchingIndexes = checkDuplicates(arrWithoutSymbols, draggedWord);//Implemented using decorator pattern
+        var matchingIndexes = checkDuplicates(arrWithoutSymbols, draggedWord);//Implemented using Iterator pattern
         
         if(matchingIndexes.length<2){ // 2 or more including the word dragged
           $(this).effect("shake");

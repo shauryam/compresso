@@ -29,7 +29,7 @@ body{
 }
 
 .main-container{
-	margin-top: 30px;
+	margin-top: 60px;
 }
 
 #timer-box{
@@ -89,3 +89,12 @@ img{
 .stats-head{
 	margin-top: 50px;
 }
+
+.alert{
+	margin-bottom: -60px;
+}
+
+.close{
+	margin-bottom: -37px;
+}
+
