@@ -7,6 +7,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js">
 	<link rel="stylesheet" type="text/css" href="css/singlePlayer_style.css">
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	
 </head>
 <body>
 	<div class="container">
@@ -15,7 +17,6 @@
 		  <strong>Hurry!</strong> Other Player has finished
 		</div> 
 	</div>
-		
 	<div class="container main-container">		
 		<div class="row">
 			<div  class="col-md-3 text-center">
@@ -27,11 +28,12 @@
 					<p>Score</p>
 					<p id="score">00</p>
 				</div>
-				<div id="reset" onclick="hint()">
-					<p>Hint</p>
+				<div id="reset">
+					<p onclick="hint()">Hint</p>
 				</div>
+
 				<div id="finish" data-toggle="modal" data-target="#resultModal">
-					<p onclick="finish()">Finish</p>
+					 <p onclick="finish()">Finish</p>
 				</div>
 			</div>
 			
@@ -55,8 +57,10 @@
 	        <h4 class="modal-title" id="myModalLabel">Game Results</h4>
 	      </div>
 	      <div class="modal-body">
-	        <h3 class="text-center">Superb! You managed a total of 64% compression</h3>
-	        <h4 class="text-center">Maximum possible compression for this string is 57%</h4>
+	        <!-- <h3 id= "yourresult" class="text-center">Superb! You managed a total of 64% compression</h3> -->
+	        <h3 id= "yourresult" class="text-center"></h3>
+	        <!-- <h4 id ="bestresult" class="text-center">Maximum possible compression for this string is 57%</h4> -->
+	        <h4 id ="bestresult" class="text-center"></h4>
 	        <h4 class="text-center lead stats-head muted">Here are some of the stats</h4>
 	      </div>
 	      <div class="modal-footer">
@@ -78,6 +82,6 @@
 	<script type="text/javascript" src="js/Iterator.js"></script>
 	<script type="text/javascript" src="js/finish.js"></script>
 	<script type="text/javascript" src="js/singlePlayer_script.js"></script>
-
+    <script type="text/javascript" src="js/strategy.js"></script>
 </body>
 </html>

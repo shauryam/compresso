@@ -1,4 +1,12 @@
 var numberOfWords;
+var arrWithoutSymbols = [];
+var compressedArray = [];
+var hashedWords = []; 
+var gameFinsihed = false;
+var timeTaken = 0;
+var hintWords = [];
+var arr = [];
+
 $(function(){
 
   var points = 00;
@@ -8,7 +16,6 @@ $(function(){
 
   //This will pick the strings randomly from the array 'compressionStr' present in compressionStrings.js file
    var str = compressionStr[Math.floor(Math.random()*compressionStr.length)];
-   //var strWithoutSymbols = removeSymbols(str); //will remove symbols
    var temp = str.split(" ");
    for(var i = 0; i<temp.length; i++){
       temp[i] = temp[i].replace(".", "");
@@ -16,20 +23,20 @@ $(function(){
       temp[i] = temp[i].replace("!", "");
       temp[i] = temp[i].replace("?", "");
    }
-
    var strWithoutSymbols = temp.join(" ");
-   //strWithoutSymbols = strWithoutSymbols.replace(",", "");
+  // var strWithoutSymbols = removeSymbols(str); //will remove symbols 
    console.log(strWithoutSymbols);
 
-
    //Code to split the string to individual words and put them on screen for dragging
-   var arr = str.split(" ");
+   arr = str.split(" ");
    putString(arr); //Implemented using iterator pattern
 
    //This array has been created to compare draggedWords with words without symbols like period, comma or exclamation.
-   var arrWithoutSymbols = strWithoutSymbols.split(" ");
+   arrWithoutSymbols = strWithoutSymbols.split(" ");
    numberOfWords = arrWithoutSymbols.length;
 
+   //Copy original array
+   compressedArray = arrWithoutSymbols.slice();
 
    //following loop adds the feature of dragging all the words and also gives each word a unique ID
    for(var i=0; i<counter; i++){
@@ -55,7 +62,7 @@ $(function(){
   $( "#droppable" ).droppable({
       drop: function( event, ui ) {   
          // this array is used to track the indexes of the words that will match the dragged word
-        var matchingIndexes = checkDuplicates(arrWithoutSymbols, draggedWord);//Implemented using Iterator pattern
+        var matchingIndexes = checkDuplicates(arrWithoutSymbols, draggedWord);//Implemented using decorator pattern
         
         if(matchingIndexes.length<2){ // 2 or more including the word dragged
           $(this).effect("shake");
@@ -67,6 +74,7 @@ $(function(){
           disableDuplicates(matchingIndexes); //Implemented using Iterator Pattern          
           var score = $("#score").html();
           $("#score").html(parseInt(score) + pointsIncrementor);
+          final_score = $("#score").html();
         }
       }
     });
@@ -105,6 +113,39 @@ clock.on('finish.countdown', function(event){
 });
 //timer code ends here
 
+//hint code starts here
+function hint(){
+	var l = 0;
+	maxPossibleCompression();
+	var score = $("#score").html();
+	$("#score").html(parseInt(score) - 5);
+	/*for (var p = 0; p < numberOfWords; p++) {
+		for (var q = p; q < numberOfWords; q++) {
+			if(arr[p] == arr[q]) {
+			hintWords.push(arr[p]);
+			l++;
+		}
+	}}
+	alert(hintWords[Math.floor(Math.random()*l)]);*/
+	var a = [], diff = [];
+for (var i = 0; i < hashedWords.length; i++) {
+        a[hashedWords[i]] = true;
+    }
+
+    for (var i = 0; i < hashedBest.length; i++) {
+        if (a[hashedBest[i]]) {
+            delete a[hashedBest[i]];
+        } else {
+            a[hashedBest[i]] = true;
+        }
+    }
+
+    for (var k in a) {
+        diff.push(k);
+    }
+
+    alert(diff[Math.floor(Math.random()*diff.length)])
+}
 
 
 
