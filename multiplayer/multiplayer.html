@@ -6,11 +6,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Poiret+One|Quicksand|Exo" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js">
-	<link rel="stylesheet" type="text/css" href="css/singlePlayer_style.css">
+	<link rel="stylesheet" type="text/css" href="css/singlePlayer_style.css">	
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	<script type="text/javascript">
 	    //var ctx = document.getElementById("ctx").getContext("2d");
 	    //ctx.font = '30px Arial';
+
+	    function putResult(str){
+	    	$(".result-head").html(str);
+	    }
 	   
 	    var socket = io();
 	       
@@ -31,22 +36,29 @@
 	        });
 					// receive message from server whether won or lost
 					socket.on('send msg',function(data){
-	         console.log("data",data);
+						putResult(data);
+						if(data.indexOf("couldn't")>=0){
+							$('#resultModal').modal('show');
+						}
+	         			console.log("data",data);
 	        });
 					// display waiting for other players
 					socket.on('check results',function(data){
-	         console.log("results:",data);
+						var str = '<div class="alert alert-success alert-dismissible"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Great!</strong> Waiting for other players to finish</div>'
+						$(".alert-box").html(str);
+	         			console.log("results:",data);
 	        });
 					
 	   
 	</script>
+	
 </head>
 <body>
-	<div class="container">
-		<div class="alert alert-warning alert-dismissible">
+	<div class="container alert-box">
+		<!-- <div class="alert alert-warning alert-dismissible">
 		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		  <strong>Hurry!</strong> Other Player has finished
-		</div> 
+		</div>  -->
 	</div>
 	<div class="container main-container">		
 		<div class="row">
@@ -63,8 +75,8 @@
 					<p onclick="hint()">Hint</p>
 				</div>
 
-				<div id="finish" data-toggle="modal" data-target="#resultModal">
-					 <p onclick="finish()">Finish</p>
+				<div id="finish">
+					<p onclick="finish()">Finish</p>
 				</div>
 			</div>
 			
@@ -73,8 +85,7 @@
 				</div>
 				<div class="row image text-center">
 					<img id="droppable" src="img/box.png">
-				</div>
-				
+				</div>	
 			</div>
 		</div>	
 	</div>
@@ -92,7 +103,7 @@
 	        <h3 id= "yourresult" class="text-center"></h3>
 	        <!-- <h4 id ="bestresult" class="text-center">Maximum possible compression for this string is 57%</h4> -->
 	        <h4 id ="bestresult" class="text-center"></h4>
-	        <h4 class="text-center lead stats-head muted">Here are some of the stats</h4>
+	        <h4 class="text-center lead result-head muted final-result"></h4>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-primary col-md-offset-4 col-md-4" data-dismiss="modal">Superb!</button>
@@ -102,9 +113,8 @@
 	</div>
 	<!-- Result modal ends here-->
 	
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>	
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>	
 	<script type="text/javascript" src="js/compressionStrings.js"></script>
 	<script type="text/javascript" src="js/removeSymbols.js"></script>
@@ -112,7 +122,8 @@
 	<script type="text/javascript" src="js/pointsIncrementor.js"></script>
 	<script type="text/javascript" src="js/Iterator.js"></script>
 	<script type="text/javascript" src="js/finish.js"></script>
-	<script type="text/javascript" src="js/singlePlayer_script.js"></script>
+	<script type="text/javascript" src="js/multiPlayer_script.js"></script>
     <script type="text/javascript" src="js/strategy.js"></script>
+    
 </body>
 </html>

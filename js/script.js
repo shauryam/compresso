@@ -16,7 +16,6 @@ function gameConfig() {
 /*Decorator 1*/
 function Duration(game) {
 	var duration = document.configForm.duration.value;
-	console.log("Duratinon --> " + duration);
     game.duration = duration;
 }
  /*Decorator 2*/

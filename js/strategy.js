@@ -1,14 +1,16 @@
 //Strategy 
+var hashedBest = [];
 function insertIntoHashMap(draggedWord, index) {
     //  console.log("Compressed Array is: ", compressedArray);
     compressedArray[index] = "1";  
     //insert only if word is not already in array
-    if (hashedWords.indexOf((removeSymbols(draggedWord)) > -1)) {
+    var word = removeSymbols(draggedWord);
+    if (hashedWords.indexOf(word) > -1) {
     //In the array!
     } else {
     //Not in the array
         console.log("Word being inserted into array: ",draggedWord);
-        hashedWords.push(draggedWord);
+        hashedWords.push(word);
     }
 
 }
@@ -74,7 +76,7 @@ function getOriginalLengthOfString() {
 function maxPossibleCompression() {
     var originalArrayBest = arrWithoutSymbols.slice();
     var compressedArrayBest = arrWithoutSymbols.slice();
-    var hashedBest = [];
+    
 
     for (var i=0; i<originalArrayBest.length; i++) {
                 

@@ -3,6 +3,9 @@ function finish() {
 	    var elementSelector = "#draggable" + i;
 	    $(elementSelector).draggable("disable");
   	}
+    
+    $('#resultModal').modal('show');
+    finished = true;
     calculateCompressedStringLength();
 
     //Send result to server

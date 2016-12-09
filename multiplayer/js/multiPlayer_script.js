@@ -6,6 +6,8 @@ var gameFinsihed = false;
 var timeTaken = 0;
 var hintWords = [];
 var arr = [];
+var hint_button_pressed = false;
+var finished = false;
 
 
 $(function () {
@@ -32,11 +34,11 @@ $(function () {
    var strWithoutSymbols = temp.join(" ");
 
   //Code to split the string to individual words and put them on screen for dragging
-  var arr = str1.split(" ");
+  arr = str1.split(" ");
   putString(arr); //Implemented using iterator pattern
 
   //This array has been created to compare draggedWords with words without symbols like period, comma or exclamation.
-  var arrWithoutSymbols = strWithoutSymbols.split(" ");
+   arrWithoutSymbols = strWithoutSymbols.split(" ");
 
    numberOfWords = arrWithoutSymbols.length;
 
@@ -72,6 +74,9 @@ $(function () {
 
       if (matchingIndexes.length < 2) { // 2 or more including the word dragged
         $(this).effect("shake");
+        var score = $("#score").html();
+        ($("#score").html(parseInt(score) - 5));
+        final_score = $("#score").html();
       }
       else {
         $(this).animateCss('bounce');
@@ -96,14 +101,15 @@ $.fn.extend({
 //box animation code ends here
 
 //code for timer starts here which uses the function 'getParameterByName()' to fetch duration from query string
-var seconds = getParameterByName('duration') * 1000;
+var seconds = 40 * 1000;
 var time = new Date().getTime() + seconds;
 var timeFinished = false;
 var clock = $('#clock').countdown(time, { precision: 1000 });
 
 clock.on('update.countdown', function (event) {
   var $this = $(this);
-  if (event.elapsed) {
+  if (event.elapsed || finished) {
+    $this.html(event.strftime('00'));
   } else {
     $this.html(event.strftime(' %S '));
   }
@@ -112,11 +118,52 @@ clock.on('update.countdown', function (event) {
 clock.on('finish.countdown', function (event) {
   var $this = $(this);
   $this.html(event.strftime('00'));
-  $('#resultModal').modal('show');
+  if(!finished){
+    finish();
+  }
+  
 });
 //timer code ends here
 
 
+
+//hint code starts here
+function hint(){
+  var l = 0;
+  if (!hint_button_pressed) {
+    maxPossibleCompression();  
+    hint_button_pressed = true;
+  }
+  
+  var score = $("#score").html();
+  $("#score").html(parseInt(score) - 5);
+  /*for (var p = 0; p < numberOfWords; p++) {
+    for (var q = p; q < numberOfWords; q++) {
+      if(arr[p] == arr[q]) {
+      hintWords.push(arr[p]);
+      l++;
+    }
+  }}
+  alert(hintWords[Math.floor(Math.random()*l)]);*/
+  var a = [], diff = [];
+for (var i = 0; i < hashedWords.length; i++) {
+        a[hashedWords[i]] = true;
+    }
+
+    for (var i = 0; i < hashedBest.length; i++) {
+        if (a[hashedBest[i]]) {
+            delete a[hashedBest[i]];
+        } else {
+            a[hashedBest[i]] = true;
+        }
+    }
+
+    for (var k in a) {
+        diff.push(k);
+    }
+
+    alert(diff[Math.floor(Math.random()*diff.length)])
+}
 
 
 

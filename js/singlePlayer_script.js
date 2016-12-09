@@ -6,6 +6,7 @@ var gameFinsihed = false;
 var timeTaken = 0;
 var hintWords = [];
 var arr = [];
+var finished = false;
 
 $(function(){
 
@@ -97,36 +98,32 @@ var time = new Date().getTime() + seconds;
 var timeFinished = false;
 var clock = $('#clock').countdown(time, {precision: 1000});
 
-clock.on('update.countdown', function(event) {
+clock.on('update.countdown', function (event) {
   var $this = $(this);
-  if (event.elapsed) {
+  if (event.elapsed || finished) {
+    $this.html(event.strftime('00'));
   } else {
     $this.html(event.strftime(' %S '));
   }
 }).countdown('start');
 
-clock.on('finish.countdown', function(event){
+clock.on('finish.countdown', function (event) {
   var $this = $(this);
   $this.html(event.strftime('00'));
-  $('#resultModal').modal('show');
-  finish();
+  if(!finished){
+    finish();
+  }
+  
 });
 //timer code ends here
 
 //hint code starts here
 function hint(){
-	var l = 0;
+	//var l = 0;
+
 	maxPossibleCompression();
 	var score = $("#score").html();
 	$("#score").html(parseInt(score) - 5);
-	/*for (var p = 0; p < numberOfWords; p++) {
-		for (var q = p; q < numberOfWords; q++) {
-			if(arr[p] == arr[q]) {
-			hintWords.push(arr[p]);
-			l++;
-		}
-	}}
-	alert(hintWords[Math.floor(Math.random()*l)]);*/
 	var a = [], diff = [];
 for (var i = 0; i < hashedWords.length; i++) {
         a[hashedWords[i]] = true;
